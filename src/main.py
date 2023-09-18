@@ -20,12 +20,14 @@ def input_information(dic):
     :param dic: словарь операции
     '''
     try:
-        A = list(dic['from'].split())
-        from_ = ' '.join(A[:-1]) + f' {A[-1][:4]} {A[-1][4:6]}** **** {A[-1][-4:]} -> '
+        list_from = list(dic['from'].split())
+        from_ = ' '.join(list_from[:-1]) + f' {list_from[-1][:4]} {list_from[-1][4:6]}** **** {list_from[-1][-4:]} -> '#маска для счета отправителя
     except KeyError:
         from_ = ''
-    B = list(dic['to'].split())
-    to_ = ' '.join(B[:-1]) + f' **{B[-1][-4:]}'
+
+    list_to = list(dic['to'].split())
+    to_ = ' '.join(list_to[:-1]) + f' **{list_to[-1][-4:]}'#маска для счета получателя
+
     print(f"""{dic['date'][:10]} {dic['description']}
 {from_}{to_}
 {dic['operationAmount']['amount']} {dic['operationAmount']['currency']['name']}
@@ -65,7 +67,6 @@ def start():
             except KeyError:
                 pass
         count += 1
-
 
 
 start()

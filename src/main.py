@@ -7,9 +7,9 @@ def load_operations():
     Распаковка архива и загрузка json файла в данные data
     :return: данные data
     '''
-    with ZipFile('C:/Users/Lenovo/PycharmProjects/Project_KR3/data/operations.zip', 'r') as myzip:
-        myzip.extract('operations.json', path='C:/Users/Lenovo/PycharmProjects/Project_KR3/data')
-    with open('C:/Users/Lenovo/PycharmProjects/Project_KR3/data/operations.json', encoding='utf-8') as file:
+    with ZipFile('../data/operations.zip', 'r') as myzip:
+        myzip.extract('operations.json', path='../data')
+    with open('../data/operations.json', encoding='utf-8') as file:
         data = json.load(file)
     return data
 
@@ -65,6 +65,7 @@ def start():
             except KeyError:
                 pass
         count += 1
+
 
 
 start()
